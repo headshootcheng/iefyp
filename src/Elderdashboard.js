@@ -12,11 +12,11 @@ export default class Elderdashboard extends React.Component{
     render=()=>{
         
         return(
-            <View>
-            
-                <Text style={styles.text1} >elderdashboard</Text>
-            
-            </View>
+            <Container style={styles.container}>
+                <Header style={styles.header}>
+                    <Title>SmartElder</Title>
+                </Header>
+            </Container>
             )
     }
 }
