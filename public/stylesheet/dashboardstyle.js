@@ -1,18 +1,84 @@
 import {StyleSheet} from 'react-native';
 module.exports = StyleSheet.create({
     container:{
-        //flex:1,
+        flex:1,
         //alignItems:"center", 
     },
     header:{
-        height:80,
         backgroundColor:"blue",
         width:"100%",
-        //flex:1,
+        height:80,
         justifyContent:"center",
         alignItems:"center"
         //flexDirection:"row"
+    },
+    title:{
+        fontFamily:"TitilliumWeb-Regular",
+        color:"white"
+    },
+    content:{
+        width:'100%',
+        flexGrow:1,
+    },
+    weather:{
+        width:'100%',
+        flexGrow:0.4,
+        flexDirection:"row",
+        justifyContent:"space-between",
+        alignItems:"center",
+       
+    },
+    weatherinfo:{
+        flexGrow:0.2,
+        flexDirection:"column",
+        alignItems:"center"
+        //justifyContent:"center",
+    },
+    infotext:{
+        paddingVertical:5,
+        fontFamily:"TitilliumWeb-Regular",
+        fontSize:20
+    },
+    weatherimg:{
+        flex:0.6,
+        alignItems:"flex-end",
+        justifyContent:"center"
+    },
+    img:{
+        paddingRight:10,
+        height:200,
+        width:200
+    },
+    menu:{
+        width:'100%',
+        flex:0.6,
+        backgroundColor:"yellow"
+    },
+    menurow:{
+        flex:1,
+        width:'100%',
+        flexDirection:"row"
+    },
+    menubutton1:{
+        flex:1,
+        backgroundColor:'blue',
+        alignItems:"center",
+        justifyContent:"center",
+        //flexWrap:"wrap"
+    },
+    menubutton2:{
+        flex:1,
+        backgroundColor:'grey',
+        justifyContent:"center",
+        alignItems:"center",
+        //flexWrap:"wrap"
+    },
+    menutext:{
+        color:"white",
+        fontFamily:"TitilliumWeb-Regular",
+        fontSize:25
     }
+
 });
 
 
