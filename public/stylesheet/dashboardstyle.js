@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
-const styles = StyleSheet.create({
+module.exports = StyleSheet.create({
     
     text1:{
         fontSize:100,
-        textAlign:"center"
+        color:"red"
     }
 });
 
-export default styles;
+
