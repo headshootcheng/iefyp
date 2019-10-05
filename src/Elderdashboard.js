@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { View, Text, ScrollView,Image } from "react-native";
+import { View, Text, ScrollView,Image,TouchableOpacity } from "react-native";
 import {Container,Header,Title,Content} from 'native-base';
 let styles = require('../public/stylesheet/dashboardstyle');
 export default class Elderdashboard extends React.Component{
@@ -8,7 +8,9 @@ export default class Elderdashboard extends React.Component{
         header:null
     }
 
-
+    gotoroutepage = () =>{
+        this.props.navigation.navigate('Locationsuggestion');
+    }
     render=()=>{
         
         return(
@@ -40,9 +42,9 @@ export default class Elderdashboard extends React.Component{
                             </View>
                         </View>
                         <View style={styles.menurow}>
-                        <View style={styles.menubutton2}>
+                        <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage}>
                             <Text style={styles.menutext}>Route Suggestion</Text>
-                        </View>
+                        </TouchableOpacity>
                         <View style={styles.menubutton1}>
                         <Text style={styles.menutext}>My Location</Text>
                         </View>

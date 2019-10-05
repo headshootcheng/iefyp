@@ -3,11 +3,10 @@ import { View, Text } from "react-native";
 import { createAppContainer  } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack'
 import Elderdashboard from'./src/Elderdashboard';
-import Main from './src/main'
+import Locationsuggestion from './src/elder/locationsuggestion'
 const Allpages = createStackNavigator({
   Elderdashboard: Elderdashboard,
-  Home: Main,
-  //Parentdashboard: Parentdashboard,
+  Locationsuggestion: Locationsuggestion
 },
 {
   initialRouteName:"Elderdashboard",

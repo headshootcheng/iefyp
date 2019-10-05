@@ -1,5 +1,12 @@
 import {StyleSheet} from 'react-native';
 module.exports = StyleSheet.create({
+    customheader:{
+        backgroundColor:"blue",
+        width:"100%",
+        height:80,
+        justifyContent:"space-between",
+        alignItems:"center"
+    },
     container:{
         flex:1,
         //alignItems:"center", 
@@ -20,6 +27,7 @@ module.exports = StyleSheet.create({
         width:'100%',
         flexGrow:1,
     },
+    //Elderdashboard
     weather:{
         width:'100%',
         flexGrow:0.4,
@@ -77,8 +85,22 @@ module.exports = StyleSheet.create({
         color:"white",
         fontFamily:"TitilliumWeb-Regular",
         fontSize:25
-    }
-
+    },
+    //Location Suggestion
+    locationbutton1:{
+        flex:1,
+        backgroundColor:'grey',
+        alignItems:"center",
+        justifyContent:"center",
+        //flexWrap:"wrap"
+    },
+    locationbutton2:{
+        flex:1,
+        backgroundColor:'#43FE7B',
+        alignItems:"center",
+        justifyContent:"center",
+        //flexWrap:"wrap"
+    },
 });
 
 
