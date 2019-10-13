@@ -1,9 +1,13 @@
 import React,{Component} from "react";
 import { View, Text, ScrollView,Image,TouchableOpacity } from "react-native";
+import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 let styles = require('../public/stylesheet/dashboardstyle');
 export default class Elderdashboard extends React.Component{
 
+    componentDidMount(){
+        SplashScreen.hide();  
+    }
     static navigationOptions = {
         header:null
     }

@@ -7,6 +7,7 @@ export default class locationsuggestion extends Component{
     static navigationOptions = {
         header:null
     }
+    
     render=()=>{
         return(
             <Container styles={styles.container}>
