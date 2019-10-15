@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet,Dimensions} from 'react-native';
 module.exports = StyleSheet.create({
     customheader:{
         backgroundColor:"blue",
@@ -101,6 +101,56 @@ module.exports = StyleSheet.create({
         justifyContent:"center",
         //flexWrap:"wrap"
     },
+    //Quick Call
+    contactlistarea:{
+        flex:1,   
+    },
+    contactlistarea2:{
+        flexDirection:'row',
+        flexWrap:"wrap",   
+    },
+    contactimg:{
+        height:Dimensions.get('window').width/3,
+        width:Dimensions.get('window').width/3
+    },
+    //My Location
+    mylocationarea:{
+        flex:1
+    },
+    maparea:{
+        flex:6,
+    },
+    mapimg:{
+       
+    },
+    locationhintarea:{
+        flex:4,
+        backgroundColor:'green'
+    },
+    locationhinttop:{
+        flex:.4,
+        backgroundColor:'grey',
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    locationhintbottom:{
+        flex:.6,
+        backgroundColor:'white',
+        fontFamily:"TitilliumWeb-Regular",
+        fontSize:30,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    locationhinttext1:{
+        fontFamily:"TitilliumWeb-Regular",
+        fontSize:30,
+        color:'white'
+    },
+    locationhinttext2:{
+        fontFamily:"TitilliumWeb-Regular",
+        fontSize:30,
+        color:'grey'
+    }
 });
 
 

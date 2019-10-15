@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { View, Text, ScrollView,Image,TouchableOpacity } from "react-native";
+import { View, Text, ScrollView,Image,TouchableOpacity,Linking,Platform } from "react-native";
 import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 let styles = require('../public/stylesheet/dashboardstyle');
@@ -12,8 +12,24 @@ export default class Elderdashboard extends React.Component{
         header:null
     }
 
-    gotoroutepage = () =>{
+    phonecall=()=>{
+        let phonenumber='';
+        if(Platform.OS=='android'){
+            phonenumber = `tel:${'999'}`;
+        }
+        else{
+            phonenumber = `telprompt:${'999'}`;
+        }
+        Linking.openURL(phonenumber)
+    }
+    gotoroutepage2 = () =>{
+        this.props.navigation.navigate('Quickcall');
+    }
+    gotoroutepage3 = () =>{
         this.props.navigation.navigate('Locationsuggestion');
+    }
+    gotoroutepage4 = () =>{
+        this.props.navigation.navigate('MyLocation');
     }
     render=()=>{
         
@@ -38,20 +54,20 @@ export default class Elderdashboard extends React.Component{
                     </View>
                     <View style={styles.menu}>
                         <View style={styles.menurow}>
-                            <View style={styles.menubutton1}>
+                            <TouchableOpacity style={styles.menubutton1} onPress={this.phonecall}>
                                 <Text style={styles.menutext}>Emergency Call</Text>
-                            </View>
-                            <View style={styles.menubutton2}>
-                            <Text style={styles.menutext}>Quick Call</Text>
-                            </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage2}>
+                                <Text style={styles.menutext}>Quick Call</Text>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.menurow}>
-                        <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage}>
-                            <Text style={styles.menutext}>Route Suggestion</Text>
-                        </TouchableOpacity>
-                        <View style={styles.menubutton1}>
-                        <Text style={styles.menutext}>My Location</Text>
-                        </View>
+                            <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage3}>
+                                <Text style={styles.menutext}>Route Suggestion</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.menubutton1} onPress={this.gotoroutepage4}>
+                                <Text style={styles.menutext}>My Location</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>

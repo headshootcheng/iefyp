@@ -10,7 +10,7 @@ export default class locationsuggestion extends Component{
     
     render=()=>{
         return(
-            <Container styles={styles.container}>
+            <Container style={styles.container}>
                 <CustomHeader title="Route Suggestion" {...this.props}/>
                 <View style={styles.content}>
 
