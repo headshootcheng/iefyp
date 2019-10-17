@@ -29,7 +29,7 @@ export default class Elderdashboard extends React.Component{
         this.props.navigation.navigate('Locationsuggestion');
     }
     gotoroutepage4 = () =>{
-        this.props.navigation.navigate('MyLocation');
+        this.props.navigation.navigate('MyLocation2');
     }
     render=()=>{
         

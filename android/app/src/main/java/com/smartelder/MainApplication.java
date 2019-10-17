@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
@@ -29,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           //packages.add(new RNGestureHandlerPackage());
           //packages.add(new SplashScreenReactPackage());
+          //packages.add(new MapsPackage());
+          //packages.add(new MainReactPackage());
           return packages;
         }
 
