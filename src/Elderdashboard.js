@@ -3,7 +3,6 @@ import { View, Text, ScrollView,Image,TouchableOpacity,Linking,Platform } from "
 import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 import Geolocation from '@react-native-community/geolocation';
-import { tsExpressionWithTypeArguments } from "@babel/types";
 let styles = require('../public/stylesheet/dashboardstyle');
 export default class Elderdashboard extends React.Component{
 
