@@ -3,6 +3,7 @@ import { View, Text, ScrollView,Image,TouchableOpacity,Linking,Platform } from "
 import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 import Geolocation from '@react-native-community/geolocation';
+import { tsExpressionWithTypeArguments } from "@babel/types";
 let styles = require('../public/stylesheet/dashboardstyle');
 export default class Elderdashboard extends React.Component{
 
@@ -14,7 +15,9 @@ export default class Elderdashboard extends React.Component{
             temperature:'',
             humidity:'',
             pressure:'',
-            place:''
+            place:'',
+            description:'',
+            icon:''
         }
     }
 
@@ -49,11 +52,14 @@ export default class Elderdashboard extends React.Component{
         fetch(url)
         .then(response => response.json())
         .then(data => {
+            console.log(data.weather[0].icon);
            this.setState({
                temperature:data.main.temp,
                humidity:data.main.humidity,
                pressure:data.main.pressure,
-               place:data.name
+               place:data.name,
+               description:data.weather[0].description,
+               icon:data.weather[0].icon
             })
         })
     }
@@ -96,10 +102,11 @@ export default class Elderdashboard extends React.Component{
                             <Text style={styles.infotext}>{hours}:{min}</Text>
                             <Text style={styles.infotext}>{this.state.temperature}°C</Text>
                             <Text style={styles.infotext}>{this.state.humidity}%</Text>
+                            <Text style={styles.infotext}>{this.state.description}</Text>
                             <Text style={styles.infotext}>{this.state.place}</Text>
                         </View>
                         <View style={styles.weatherimg}> 
-                            <Image style={styles.img} source={require('../public/image/weather.png')}/>
+                            <Image style={styles.img} source={{uri:"http://openweathermap.org/img/wn/"+this.state.icon+"@2x.png"}}/>
                         </View>
                     </View>
                     <View style={styles.menu}>
