@@ -140,6 +140,7 @@ module.exports = StyleSheet.create({
         fontSize:30,
         alignItems:'center',
         justifyContent:'center',
+        flexWrap:'wrap'
     },
     locationhinttext1:{
         fontFamily:"TitilliumWeb-Regular",
@@ -148,8 +149,9 @@ module.exports = StyleSheet.create({
     },
     locationhinttext2:{
         fontFamily:"TitilliumWeb-Regular",
-        fontSize:30,
-        color:'grey'
+        fontSize:20,
+        color:'grey',
+        flexWrap:'wrap'
     },
     map: {
         position: 'absolute',
