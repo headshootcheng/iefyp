@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.geolocation.GeolocationPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -31,7 +32,10 @@ public class MainApplication extends Application implements ReactApplication {
           //packages.add(new RNGestureHandlerPackage());
           //packages.add(new SplashScreenReactPackage());
           //packages.add(new MapsPackage());
-          //packages.add(new MainReactPackage());
+          //packages.add(new MainReactPackage(),
+            //new GeolocationPackage(),
+          //new GeolocationPackage());
+          //packages.add(new GeolocationPackage());
           return packages;
         }
 

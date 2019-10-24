@@ -10,6 +10,7 @@
       android:roundIcon="@mipmap/logo"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyAH3V3pnztTZbSUsR5nPGuYfltD7kSczGs"/>
