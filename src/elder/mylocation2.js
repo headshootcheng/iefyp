@@ -6,7 +6,7 @@ import MapView from 'react-native-maps';
 
 let styles = require('../../public/stylesheet/dashboardstyle');
 const {width, height} = Dimensions.get('window')
-//import Geolocation from '@react-native-community/geolocation';
+import Geolocation from '@react-native-community/geolocation';
 
 const SCREEN_HEIGHT = height
 const SCREEN_WIDTH = width
@@ -28,7 +28,7 @@ export default class mylocation extends Component{
             }
         }
     }
-    /*componentDidMount(){
+    componentDidMount(){
         let geoOptions={
             enableHighAccuaracy: true,
             timeOut:20000,
@@ -44,7 +44,7 @@ export default class mylocation extends Component{
     }
     gofailure=(error)=>{
         console.log(error);
-    } */
+    } 
     render=()=>{
         return(
             <Container style={styles.container}>
