@@ -9,9 +9,12 @@ export default class Elderdashboard extends React.Component{
     constructor(props){
         super(props);
         this.state={         
-            latitude: 37.785834,
-            longitude: -122.406417,
-            temperature:24
+            latitude: 22.4185,
+            longitude: 114.2041,
+            temperature:'',
+            humidity:'',
+            pressure:'',
+            place:''
         }
     }
 
@@ -42,13 +45,19 @@ export default class Elderdashboard extends React.Component{
     }
 
     getWeather(){
-        let url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + this.state.latitude + '&lon=' + this.state.longitude + '&units=metric&appid=5910c335c2f1852ab4bd5dfad422094a';
+        let url = 'http://api.openweathermap.org/data/2.5/weather?lat='+this.state.latitude+'&lon='+this.state.longitude+'&units=metric&appid=5910c335c2f1852ab4bd5dfad422094a';
         fetch(url)
         .then(response => response.json())
         .then(data => {
-           console.log(data);
+           this.setState({
+               temperature:data.main.temp,
+               humidity:data.main.humidity,
+               pressure:data.main.pressure,
+               place:data.name
+            })
         })
     }
+
     phonecall=()=>{
         let phonenumber='';
         if(Platform.OS=='android'){
@@ -85,9 +94,9 @@ export default class Elderdashboard extends React.Component{
                         <View style={styles.weatherinfo}>
                             <Text style={styles.infotext}>{date}/{month}/{year}</Text>
                             <Text style={styles.infotext}>{hours}:{min}</Text>
-                            <Text style={styles.infotext}>Sunny</Text>
-                            <Text style={styles.infotext}>24°C</Text>
-                            <Text style={styles.infotext}>68%</Text>
+                            <Text style={styles.infotext}>{this.state.temperature}°C</Text>
+                            <Text style={styles.infotext}>{this.state.humidity}%</Text>
+                            <Text style={styles.infotext}>{this.state.place}</Text>
                         </View>
                         <View style={styles.weatherimg}> 
                             <Image style={styles.img} source={require('../public/image/weather.png')}/>

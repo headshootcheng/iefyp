@@ -14,8 +14,8 @@ export default class mylocation extends Component{
     constructor(props){
         super(props);
         this.state={         
-            latitude: 37.785834,
-            longitude: -122.406417, 
+            latitude: 22.4185,
+            longitude: 114.2041, 
             place:'',
             administration:'',
             country:'',
