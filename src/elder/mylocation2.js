@@ -72,9 +72,6 @@ export default class mylocation extends Component{
        
     }
 
-    test(){
-        return (<Text>123</Text>);
-    }
     render=()=>{
         return(
             <Container style={styles.container}>
