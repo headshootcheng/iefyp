@@ -2,45 +2,37 @@ import React,{Component} from "react";
 import { View, Text, ScrollView,Image,Dimensions } from "react-native";
 import {Container,Header,Title,Content} from 'native-base';
 import CustomHeader from '../common/customHeader';
-import MapView from 'react-native-maps';
+import MapView,{Marker} from 'react-native-maps';
 
 let styles = require('../../public/stylesheet/dashboardstyle');
-const {width, height} = Dimensions.get('window')
 import Geolocation from '@react-native-community/geolocation';
 
-const SCREEN_HEIGHT = height
-const SCREEN_WIDTH = width
-const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 0.0922
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 export default class mylocation extends Component{
     static navigationOptions = {
         header:null
     }
     constructor(props){
         super(props);
-        this.state={
-            initialPosition:{
+        this.state={         
             latitude: 37.785834,
-            longitude: -122.406417,
-            latitudeDelta: 0,
-            longitudeDelta: 0,
-            }
+            longitude: -122.406417,      
         }
     }
     componentDidMount(){
         let geoOptions={
             enableHighAccuaracy: true,
             timeOut:20000,
-            maximumAge: 60*60
+            maximumAge: 2000
         };
         Geolocation.getCurrentPosition(this.gosuccess,this.gofailure,geoOptions);
     }
     gosuccess=(position)=>{
         console.log(position.coords.latitude);
         console.log(position.coords.longitude);
-        this.setState({initialPosition:{latitude:position.coords.latitude,
-        longitude:position.coords.longitude}});
+        this.setState({
+            latitude:position.coords.latitude,
+            longitude:position.coords.longitude
+        });
     }
     gofailure=(error)=>{
         console.log(error);
@@ -53,8 +45,15 @@ export default class mylocation extends Component{
                     <View style={styles.maparea}>
                         <MapView
                             style={styles.map}
-                            initialRegion={this.state.initialPosition}
-                        />
+                            region={{
+                                latitude:this.state.latitude,
+                                longitude:this.state.longitude,
+                                latitudeDelta:0.015,
+                                longitudeDelta:0.0121
+                            }}
+                        >
+                            <Marker coordinate={this.state} />
+                        </MapView>
                     </View>
 
                     <View style={styles.locationhintarea}>
