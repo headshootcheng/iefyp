@@ -6,7 +6,7 @@ import CustomHeader from '../common/customHeader';
 let styles = require('../../public/stylesheet/accountstyle');
 export default class ElderChoose extends React.Component{
     componentDidMount(){
-        SplashScreen.hide(); 
+        //SplashScreen.hide(); 
     }
     static navigationOptions = {
         header:null
@@ -18,7 +18,7 @@ export default class ElderChoose extends React.Component{
                 <CustomHeader title="Smart Elder" {...this.props}/>
                 <View style={styles.menuview}>
                     
-                    <TouchableOpacity style={[styles.menubutton,{marginTop:20}]}>
+                    <TouchableOpacity style={[styles.menubutton,{marginTop:20}]} onPress={()=>{this.props.navigation.navigate('ElderLogin');}}>
                         <Text style={styles.choosetext2}>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.menubutton,{marginTop:20}]}>

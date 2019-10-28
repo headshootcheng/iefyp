@@ -48,4 +48,42 @@ module.exports = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
+    //Login
+    loginview:{
+        flex:1,
+        alignItems:'flex-start',
+        justifyContent:"center",
+        paddingHorizontal:20
+    },
+    logintext:{
+        fontSize:30
+    },
+    loginfield:{
+        backgroundColor:"orange",
+        borderRadius:10,
+        borderWidth:2,
+        borderColor:'black',
+        height:80,
+        width:'100%',
+        alignItems:'center',
+        justifyContent:'center',
+        padding:20,
+        fontSize:30,
+        marginBottom:40
+    },
+    loginbuttonarea:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:"flex-start",
+    },
+    loginbutton:{
+        backgroundColor:"aquamarine",
+        borderRadius:10,
+        borderWidth:2,
+        borderColor:'black',
+        height:100,
+        width:200,
+        alignItems:'center',
+        justifyContent:'center'
+    }
 });
