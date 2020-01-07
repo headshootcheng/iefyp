@@ -2,26 +2,22 @@ import React,{Component} from "react";
 import { View, Text } from "react-native";
 import { createAppContainer  } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack'
-import Menu from'./src/account/menu'
-import ElderChoose from'./src/account/elderchoose'
-import ElderLogin from'./src/account/elderlogin'
-import Elderdashboard from'./src/Elderdashboard';
-import Locationsuggestion from './src/elder/locationsuggestion';
-import Quickcall from './src/elder/quickcall';
-import Mylocation from './src/elder/mylocation';
-import Mylocation2 from './src/elder/mylocation2';
+import Choose from'./src/account/choose'
+import Login from'./src/account/login'
+import Dashboard from'./src/container/dashboard';
+import Mylocation from './src/container/mylocation';
+import BodyCheck from './src/container/bodycheck';
+import MedicineAlert from './src/container/medicinealert'
 const Allpages = createStackNavigator({
-  Menu: Menu,
-  ElderChoose:ElderChoose,
-  ElderLogin:ElderLogin,
-  Elderdashboard: Elderdashboard,
-  Locationsuggestion: Locationsuggestion,
-  Quickcall: Quickcall,
+  Choose:Choose,
+  Login:Login,
+  Dashboard: Dashboard,
   MyLocation:Mylocation,
-  MyLocation2:Mylocation2
+  BodyCheck:BodyCheck,
+  MedicineAlert:MedicineAlert
 },
 {
-  initialRouteName:"Menu",
+  initialRouteName:"Choose",
 });
 
 export default createAppContainer(Allpages);

@@ -75,7 +75,7 @@ export default class mylocation extends Component{
     render=()=>{
         return(
             <Container style={styles.container}>
-                 <CustomHeader title="My Location" {...this.props}/>
+                 <CustomHeader title="Location Tracking" {...this.props} left={true}/>
                  <View style={styles.mylocationarea}>
                     <View style={styles.maparea}>
                         <MapView
@@ -91,14 +91,14 @@ export default class mylocation extends Component{
                         </MapView>
                     </View>
 
-                    <View style={styles.locationhintarea}>
+                    {/*<View style={styles.locationhintarea}>
                         <View style={styles.locationhinttop}>
                             <Text style={styles.locationhinttext1}>Current Location</Text>
                         </View>
                         <View style={styles.locationhintbottom}>
                             <Text style={styles.locationhinttext2}>{this.state.streetnumber}, {this.state.street}, {this.state.neighborhood}, {this.state.smallplace}, {this.state.country}, {this.state.administration}, {this.state.place}</Text>
                         </View>
-                    </View>
+                        </View>*/}
                  </View>
             </Container>
         )

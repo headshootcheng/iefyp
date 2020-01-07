@@ -69,7 +69,7 @@ module.exports = StyleSheet.create({
     },
     menubutton1:{
         flex:1,
-        backgroundColor:'blue',
+        backgroundColor:'green',
         alignItems:"center",
         justifyContent:"center",
         //flexWrap:"wrap"

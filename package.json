@@ -24,6 +24,11 @@
     "react-navigation-stack": "^1.9.1",
     "yarn": "^1.19.0"
   },
+  "script":{
+    "run":"npm start",
+    "ios":" react-native run-ios",
+    "android":"react-native run-android"
+  },
   "devDependencies": {
     "@babel/core": "7.6.2",
     "@babel/runtime": "7.6.2",

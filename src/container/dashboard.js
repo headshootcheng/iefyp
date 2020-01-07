@@ -3,8 +3,9 @@ import { View, Text, ScrollView,Image,TouchableOpacity,Linking,Platform } from "
 import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 import Geolocation from '@react-native-community/geolocation';
-let styles = require('../public/stylesheet/dashboardstyle');
-export default class Elderdashboard extends React.Component{
+import CustomHeader from '../common/customHeader';
+let styles = require('../../public/stylesheet/dashboardstyle');
+export default class dashboard extends React.Component{
 
     constructor(props){
         super(props);
@@ -21,7 +22,7 @@ export default class Elderdashboard extends React.Component{
     }
 
     componentDidMount(){
-        SplashScreen.hide(); 
+        //SplashScreen.hide(); 
         let geoOptions={
             enableHighAccuaracy: true,
             timeOut:20000,
@@ -33,8 +34,6 @@ export default class Elderdashboard extends React.Component{
         header:null
     }
     gosuccess=(position)=>{
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
         this.setState({
             latitude:position.coords.latitude,
             longitude:position.coords.longitude
@@ -51,7 +50,6 @@ export default class Elderdashboard extends React.Component{
         fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data.weather[0].icon);
            this.setState({
                temperature:data.main.temp,
                humidity:data.main.humidity,
@@ -74,13 +72,13 @@ export default class Elderdashboard extends React.Component{
         Linking.openURL(phonenumber)
     }
     gotoroutepage2 = () =>{
-        this.props.navigation.navigate('Quickcall');
+        this.props.navigation.navigate('BodyCheck');
     }
     gotoroutepage3 = () =>{
-        this.props.navigation.navigate('Locationsuggestion');
+        this.props.navigation.navigate('MedicineAlert');
     }
     gotoroutepage4 = () =>{
-        this.props.navigation.navigate('MyLocation2');
+        this.props.navigation.navigate('MyLocation');
     }
     render=()=>{
         var date = new Date().getDate(); //Current Date
@@ -90,11 +88,11 @@ export default class Elderdashboard extends React.Component{
         var min = new Date().getMinutes(); //Current Minutes
         return(
             <Container style={styles.container}>
-                <Header style={styles.header}>
-                    <Title style={styles.title}>SmartElder</Title>
-                </Header>
+
+                <CustomHeader title="Smart Elder" {...this.props} right={true}/>
 
                 <View style={styles.content}>
+                    
                     <View style={styles.weather}>
                         <View style={styles.weatherinfo}>
                             <Text style={styles.infotext}>{date}/{month}/{year}</Text>
@@ -108,21 +106,22 @@ export default class Elderdashboard extends React.Component{
                             <Image style={styles.img} source={{uri:"http://openweathermap.org/img/wn/"+this.state.icon+"@2x.png"}}/>
                         </View>
                     </View>
+
                     <View style={styles.menu}>
                         <View style={styles.menurow}>
-                            <TouchableOpacity style={styles.menubutton1} onPress={this.phonecall}>
-                                <Text style={styles.menutext}>Emergency Call</Text>
+                            <TouchableOpacity style={styles.menubutton1} onPress={this.gotoroutepage2}>
+                                <Text style={styles.menutext}>Body Check</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage2}>
+                            <TouchableOpacity style={styles.menubutton2} onPress={this.phonecall}>
                                 <Text style={styles.menutext}>Quick Call</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.menurow}>
                             <TouchableOpacity style={styles.menubutton2} onPress={this.gotoroutepage3}>
-                                <Text style={styles.menutext}>Route Suggestion</Text>
+                                <Text style={styles.menutext}>Medicine Alert</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.menubutton1} onPress={this.gotoroutepage4}>
-                                <Text style={styles.menutext}>My Location</Text>
+                                <Text style={styles.menutext}>Location</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

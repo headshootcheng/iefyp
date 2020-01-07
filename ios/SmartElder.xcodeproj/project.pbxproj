@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0056CDABD67D4A259846762F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAD6F0D8C7C8418F830BFC62 /* MaterialIcons.ttf */; };
 		00E356F31AD99517003FC87E /* SmartElderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SmartElderTests.m */; };
@@ -367,10 +366,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = KFCXYZ99M7;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = MQGBTFK7VZ;
+						DevelopmentTeam = KFCXYZ99M7;
 						LastSwiftMigration = 1100;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -694,6 +694,7 @@
 			baseConfigurationReference = 48CD3CFE82977DD855822E28 /* Pods-SmartElderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KFCXYZ99M7;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -718,6 +719,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = KFCXYZ99M7;
 				INFOPLIST_FILE = SmartElderTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -741,7 +743,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = MQGBTFK7VZ;
+				DEVELOPMENT_TEAM = KFCXYZ99M7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -787,7 +789,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MQGBTFK7VZ;
+				DEVELOPMENT_TEAM = KFCXYZ99M7;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",

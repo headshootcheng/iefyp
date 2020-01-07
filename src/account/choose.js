@@ -4,9 +4,9 @@ import SplashScreen from 'react-native-splash-screen';
 import {Container,Header,Title,Content} from 'native-base';
 import CustomHeader from '../common/customHeader';
 let styles = require('../../public/stylesheet/accountstyle');
-export default class ElderChoose extends React.Component{
+export default class choose extends React.Component{
     componentDidMount(){
-        //SplashScreen.hide(); 
+        SplashScreen.hide(); 
     }
     static navigationOptions = {
         header:null
@@ -15,10 +15,10 @@ export default class ElderChoose extends React.Component{
     render=()=>{
         return(
             <Container>
-                <CustomHeader title="Smart Elder" {...this.props}/>
+                <CustomHeader title="Smart Elder" {...this.props}  left={true}/>
                 <View style={styles.menuview}>
                     
-                    <TouchableOpacity style={[styles.menubutton,{marginTop:20}]} onPress={()=>{this.props.navigation.navigate('ElderLogin');}}>
+                    <TouchableOpacity style={[styles.menubutton,{marginTop:20}]} onPress={()=>{this.props.navigation.navigate('Login');}}>
                         <Text style={styles.choosetext2}>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.menubutton,{marginTop:20}]}>

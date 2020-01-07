@@ -51,6 +51,7 @@ module.exports = StyleSheet.create({
     //Login
     loginview:{
         flex:1,
+        marginTop:50,
         alignItems:'flex-start',
         justifyContent:"center",
         paddingHorizontal:20
@@ -75,6 +76,7 @@ module.exports = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent:"flex-start",
+        marginTop:50
     },
     loginbutton:{
         backgroundColor:"aquamarine",
