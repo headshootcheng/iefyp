@@ -52,6 +52,7 @@ export default class dashboard extends React.Component{
         fetch(url)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
            this.setState({elderinfo: data})
         })
     }

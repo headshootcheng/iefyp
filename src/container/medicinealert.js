@@ -1,5 +1,4 @@
 import React,{Component} from "react";
-import FormData from 'FormData';
 import { View, Text, ScrollView,Image,TouchableOpacity,Linking,Platform } from "react-native";
 import {Container,Header,Title,Content} from 'native-base';
 import CustomHeader from '../common/customHeader';
@@ -16,22 +15,42 @@ export default class medicinealert extends React.Component{
     }
 
     alert=()=>{
-        //console.log('alert')
-        let formData = new FormData();
-        formData.append('test', 1);
+
         fetch('http://127.0.0.1/~petercheng/iot.php', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body:FormData
+        body:JSON.stringify({
+            alert:1
+        })
     }).then((response)=>{
         return response.json()
     }).then((myJson)=>{
         console.log(myJson);
     })
-}
+    }
+
+    
+    cancel=()=>{
+       
+        fetch('http://127.0.0.1/~petercheng/iot.php', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({
+            alert:0
+        })
+        }).then((response)=>{
+            return response.json()
+        }).then((myJson)=>{
+            console.log(myJson);
+        })
+    }
+
     render(){
         return(
             <Container>
@@ -40,7 +59,7 @@ export default class medicinealert extends React.Component{
                     <TouchableOpacity style={[styles.menubutton,{marginTop:20}]} onPress={this.alert} >
                         <Text style={styles.choosetext2}>Alert</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.menubutton,{marginTop:20,backgroundColor:'red'}]}>
+                    <TouchableOpacity style={[styles.menubutton,{marginTop:20,backgroundColor:'red'}]} onPress={this.cancel}>
                         <Text style={styles.choosetext2}>Cancel</Text>
                     </TouchableOpacity>
                 </View>
