@@ -14,27 +14,25 @@ export default class mylocation extends Component{
     constructor(props){
         super(props);
         this.state={         
-            latitude: 22.4185,
-            longitude: 114.2041, 
-            place:'',
-            administration:'',
-            country:'',
-            smallplace:'',
-            neighborhood:'',
-            street:'',
-            streetnumber:''
+          
         }
     }
   
     componentDidMount(){
-        let geoOptions={
+        /*let geoOptions={
             enableHighAccuaracy: true,
             timeOut:20000,
             maximumAge: 2000
         };
-        Geolocation.getCurrentPosition(this.gosuccess,this.gofailure,geoOptions);
+        Geolocation.getCurrentPosition(this.gosuccess,this.gofailure,geoOptions);*/
+        const {latitude,longitude} = this.props.navigation.state.params
+        this.setState({
+            latitude:latitude,
+            longitude:longitude
+        })
+        
     }
-    gosuccess=(position)=>{
+   /* gosuccess=(position)=>{
         console.log(position.coords.latitude);
         console.log(position.coords.longitude);
         this.setState({
@@ -45,9 +43,9 @@ export default class mylocation extends Component{
     }
     gofailure=(error)=>{
         console.log(error);
-    }
+    }*/
     
-    getData(){
+   /* getData(){
         Geocoder.init('AIzaSyAH3V3pnztTZbSUsR5nPGuYfltD7kSczGs');
         Geocoder.from(this.state.latitude,this.state.longitude).then(
             json=>{
@@ -70,9 +68,10 @@ export default class mylocation extends Component{
                 this.setState({streetnumber:streetnumber});
             })
        
-    }
+    }*/
 
     render=()=>{
+        console.log(this.state)
         return(
             <Container style={styles.container}>
                  <CustomHeader title="Location Tracking" {...this.props} left={true}/>

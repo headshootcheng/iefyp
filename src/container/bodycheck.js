@@ -16,14 +16,16 @@ export default class bodycheck extends React.Component{
     }
 
     render(){
+        const {heartbeatrate,heartbeatstatus} = this.props.navigation.state.params
+        //console.log(this.props.navigation.state);
         return(
             <Container style={styles.container}>
                 <CustomHeader title="Body Check" {...this.props} left={true}/>
                 
                 <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
                     <Image source={heartbeatimg} style={{height:200,width:200}}/>
-                    <Text style={{marginTop:10,fontSize:20,fontWeight:'bold'}}>Heart Beat Rate: 70</Text>
-                    <Text style={{marginTop:10,fontSize:20,fontWeight:'bold'}}>Health Status: Good</Text>
+                    <Text style={{marginTop:10,fontSize:20,fontWeight:'bold'}}>Heart Beat Rate: {heartbeatrate}</Text>
+                    <Text style={{marginTop:10,fontSize:20,fontWeight:'bold'}}>Health Status: {heartbeatstatus}</Text>
                     <Text style={{marginTop:10,fontSize:20,fontWeight:'bold'}}>Suggestion: None</Text>
                 </View>
             </Container>

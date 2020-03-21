@@ -10,25 +10,27 @@ export default class dashboard extends React.Component{
     constructor(props){
         super(props);
         this.state={         
-            latitude: 22.4185,
-            longitude: 114.2041,
+            latitude: 22.41832,
+            longitude: 114.208098,
             temperature:'',
             humidity:'',
             pressure:'',
             place:'',
             description:'',
-            icon:''
+            icon:'',
         }
     }
 
     componentDidMount(){
-        //SplashScreen.hide(); 
-        let geoOptions={
+        SplashScreen.hide(); 
+        this.getElderInfo();
+         let geoOptions={
             enableHighAccuaracy: true,
             timeOut:20000,
             maximumAge: 2000
         };
         Geolocation.getCurrentPosition(this.gosuccess,this.gofailure,geoOptions); 
+     
     }
     static navigationOptions = {
         header:null
@@ -45,6 +47,14 @@ export default class dashboard extends React.Component{
         console.log(error);
     }
 
+    getElderInfo = () =>{
+        let url = 'http://127.0.0.1/~petercheng/iot.php';
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+           this.setState({elderinfo: data})
+        })
+    }
     getWeather(){
         let url = 'http://api.openweathermap.org/data/2.5/weather?lat='+this.state.latitude+'&lon='+this.state.longitude+'&units=metric&appid=5910c335c2f1852ab4bd5dfad422094a';
         fetch(url)
@@ -64,23 +74,31 @@ export default class dashboard extends React.Component{
     phonecall=()=>{
         let phonenumber='';
         if(Platform.OS=='android'){
-            phonenumber = `tel:${'999'}`;
+            phonenumber = `tel:${'66042244'}`;
         }
         else{
-            phonenumber = `telprompt:${'999'}`;
+            phonenumber = `telprompt:${'66042244'}`;
         }
         Linking.openURL(phonenumber)
     }
+
     gotoroutepage2 = () =>{
-        this.props.navigation.navigate('BodyCheck');
+        this.props.navigation.navigate('BodyCheck',{
+            heartbeatrate:this.state.elderinfo.heartbeatrate,
+            heartbeatstatus:this.state.elderinfo.heartbeatstatus
+        });
     }
     gotoroutepage3 = () =>{
         this.props.navigation.navigate('MedicineAlert');
     }
     gotoroutepage4 = () =>{
-        this.props.navigation.navigate('MyLocation');
+        this.props.navigation.navigate('MyLocation',{
+            latitude:this.state.elderinfo.latitude,
+            longitude:this.state.elderinfo.longitude
+        });
     }
     render=()=>{
+        //console.log(this.state);
         var date = new Date().getDate(); //Current Date
         var month = new Date().getMonth() + 1; //Current Month
         var year = new Date().getFullYear(); //Current Year
