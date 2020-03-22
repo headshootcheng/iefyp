@@ -16,7 +16,7 @@ export default class medicinealert extends React.Component{
 
     alert=()=>{
 
-        fetch('http://127.0.0.1/~petercheng/iot.php', {
+        fetch('http://3.20.56.148/iot.php', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -35,7 +35,7 @@ export default class medicinealert extends React.Component{
     
     cancel=()=>{
        
-        fetch('http://127.0.0.1/~petercheng/iot.php', {
+        fetch('http://3.20.56.148/iot.php', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

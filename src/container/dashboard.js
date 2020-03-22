@@ -48,7 +48,7 @@ export default class dashboard extends React.Component{
     }
 
     getElderInfo = () =>{
-        let url = 'http://127.0.0.1/~petercheng/iot.php';
+        let url = 'http://3.20.56.148/iot.php';
         fetch(url)
         .then(response => response.json())
         .then(data => {
